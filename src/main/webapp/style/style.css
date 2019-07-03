@@ -9,3 +9,105 @@
 .hidden {
     display: none;
 }
+
+body {
+    background-image: url("../img/login_background_2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.loginbox {
+    width: 320px;
+    height: 350px;
+    background: #2E4053;
+    color: steelblue;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 25px;
+    padding: 70px 30px;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+    color: white;
+}
+
+.loginbox input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.loginbox input[type="text"], input[type="password"] {
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 20px;
+}
+
+.login-button {
+    border-radius: 15px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 40px;
+    padding: 10px;
+    width: 170px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 10px auto;
+    display: block;
+}
+
+.login-button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.login-button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.login-button:hover span {
+    padding-right: 25px;
+}
+
+.login-button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/*
+color for "dark-orange" text: #ff8a00
+color for "steel-blue" bg: #2E4053
+ */

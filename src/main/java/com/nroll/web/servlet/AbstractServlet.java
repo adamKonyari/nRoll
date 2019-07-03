@@ -1,6 +1,7 @@
-package com.codecool.web.servlet;
+package com.nroll.web.servlet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nroll.web.dto.MessageDto;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServlet;
