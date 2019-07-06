@@ -7,21 +7,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>nRoll</title>
         <c:url value="style/style.css" var="styleUrl"/>
-        <c:url value="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" var="jqueryUrl"/>
-        <c:url value="script/index.js" var="indexScriptUrl"/>
         <link rel="stylesheet" type="text/css" href="${styleUrl}">
-        <script src="${jqueryUrl}"></script>
+        <c:url value="script/index.js" var="indexScriptUrl"/>
+        <c:url value="script/login.js" var="loginScriptUrl"/>
         <script src="${indexScriptUrl}"></script>
+        <script src="${loginScriptUrl}"></script>
     </head>
 <body>
-<div class="loginbox">
+<div class="loginbox content" id="loginDiv">
     <img src="img/avatar.png" class="avatar">
     <h1>nRoll v0.3 login</h1>
-    <form>
-        <input type="text" name="" placeholder="Email">
-        <input type="password" name="" placeholder="Password">
+    <form id="login-form">
+        <input type="text" name="email" placeholder="Email" id="login-email">
+        <input type="password" name="password" placeholder="Password" id="login-password">
     </form>
-    <button class="login-button"><span>Login </span></button>
+    <button class="login-button" id="login-button"><span>Login </span></button>
+</div>
+
+<div class="hidden content" id="mainDiv">
+    <p>test</p>
 </div>
 </body>
 </html>

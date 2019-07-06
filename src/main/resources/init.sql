@@ -124,5 +124,5 @@ INSERT INTO company (name)
 VALUES ('MEISZ');
 
 INSERT INTO users (company_id, email, password, type)
-VALUES (1, 'admin@admin.com', 'admin', 'ADMIN');
+VALUES (1, 'admin@admin.com', 'Admin1234', 'ADMIN');
 
