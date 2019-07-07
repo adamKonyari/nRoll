@@ -6,6 +6,7 @@ function onSearchButtonClicked() {
         postAsync('protected/search', params)
             .then((data) => {
                 let profileList = data;
+                console.log(data);
                 document.getElementById("defaultOpen").click();
             })
             .catch((error) => {

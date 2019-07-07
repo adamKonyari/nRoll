@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ProfileDao {
     List<Profile> findAllActive() throws SQLException;
+    List<Profile> findAllByNameOrEmail(String searchParam) throws SQLException;
 }

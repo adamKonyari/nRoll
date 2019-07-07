@@ -120,9 +120,31 @@ CREATE TABLE application_note (
 
 -- test inserts
 
+INSERT INTO institution (name, type)
+VALUES ('University of California', 'UNIVERSITY');
+
+INSERT INTO institution (name, type)
+VALUES ('Stanford University', 'UNIVERSITY');
+
+INSERT INTO major (name)
+VALUES ('Law');
+
+INSERT INTO major (name)
+VALUES ('Economics');
+
 INSERT INTO company (name)
 VALUES ('MEISZ');
 
 INSERT INTO users (company_id, email, password, type)
 VALUES (1, 'admin@admin.com', 'Admin1234', 'ADMIN');
 
+INSERT INTO profile (email, firstname, middle_name, last_name, dob, institution_id, major_id, student_id, ss_number,tax_number, status)
+VALUES ('trump@test.com', 'Donald', NULL, 'Trump', '1946-01-01', 1, 1, 123, 1234, 12345, 'ACTIVE');
+
+INSERT INTO profile (email, firstname, middle_name, last_name, dob, institution_id, major_id, student_id, ss_number,tax_number, status)
+VALUES ('nixon@test.com', 'Richard', NULL, 'Nixon', '1913-01-01', 2, 1, 123, 1234, 12345, 'ACTIVE');
+
+INSERT INTO profile (email, firstname, middle_name, last_name, dob, institution_id, major_id, student_id, ss_number,tax_number, status)
+VALUES ('gwb@test.com', 'George', 'W.', 'Bush', '1946-01-01', 2, 2, 123, 1234, 12345, 'ACTIVE');
+
+SELECT * FROM profile WHERE firstname = 'George' OR last_name = 'Nixon' OR email = 'trump@test.com';
