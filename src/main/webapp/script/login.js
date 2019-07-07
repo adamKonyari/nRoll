@@ -18,23 +18,14 @@ function onLoginButtonClicked() {
         const params = new URLSearchParams();
         params.append('email', email);
         params.append('password', password);
-        getUserAsync(params)
-            .then(data => activeUser = data)
+        postAsync('login', params)
+            .then((data) => {
+                activeUser = data;
+                showContents(['mainDiv']);
+                document.getElementById("defaultOpen").click();
+            })
             .catch((error) => {
                 console.log(error);
             });
-        console.log(activeUser);
     }
-}
-
-async function getUserAsync(params) {
-    let response = await fetch('login', {
-        method: 'post',
-        body: params
-    });
-    if (!response.ok) {
-        let data = await response.json();
-        throw Error(data.message);
-    }
-    return await response.json();
 }

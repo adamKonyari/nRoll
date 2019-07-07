@@ -39,9 +39,21 @@ function showContents(ids) {
     }
 }
 
+async function postAsync(url, params) {
+    let response = await fetch(url, {
+        method: 'post',
+        body: params
+    });
+    if (!response.ok) {
+        let data = await response.json();
+        throw Error(data.message);
+    }
+    return await response.json();
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
     loginDivEl = document.getElementById('loginDiv');
-
     document.getElementById('login-button').addEventListener('click', onLoginButtonClicked);
+    document.getElementById('searchButton').addEventListener('click', onSearchButtonClicked);
 });

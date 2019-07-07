@@ -21,7 +21,7 @@ body {
     padding: 0;
 }
 
-.loginbox {
+.loginBox {
     width: 320px;
     height: 350px;
     background: #2E4053;
@@ -52,12 +52,12 @@ h1 {
     color: white;
 }
 
-.loginbox input {
+.loginBox input {
     width: 100%;
     margin-bottom: 20px;
 }
 
-.loginbox input[type="text"], input[type="password"] {
+.loginBox input[type="text"], input[type="password"] {
     border: none;
     background: transparent;
     border-bottom: 1px solid #fff;
@@ -105,6 +105,109 @@ h1 {
 .login-button:hover span:after {
     opacity: 1;
     right: 0;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 25px;
+}
+
+.topNav {
+    background-color: #f1f1f1;
+    overflow: hidden;
+}
+
+/* Style the buttons inside the tab */
+.topNav button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 20px;
+}
+
+/* Change background color of buttons on hover */
+.topNav button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.topNav button.active {
+    background-color: #2E4053;
+    color: #ff8a00;
+}
+
+.topNav .search-container {
+    float: right;
+}
+
+.topNav input[type=text] {
+    padding: 6px;
+    border: none;
+    margin-top: 7px;
+    font-size: 17px;
+}
+
+.topNav .search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.topNav .search-container button:hover {
+    background: #ccc;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 14px;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+@media screen and (max-width: 600px) {
+    .topNav .search-container {
+        float: none;
+    }
+    .topNav a, .topNav input[type=text] {
+        display: block;
+        text-align: left;
+        width: 100%;
+        margin: 0;
+        padding: 14px;
+    }
+    .topNav input[type=text] {
+        border: 1px solid #ccc;
+    }
+}
+
+/* Style the tab content */
+.tabContent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 /*
