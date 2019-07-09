@@ -1,12 +1,14 @@
 package com.nroll.web.model;
 
-import java.util.Date;
-import java.util.Objects;
+import com.nroll.web.model.enums.Gender;
 
-public class Profile extends AbstractModel{
+import java.util.Date;
+
+public class Profile extends AbstractModel {
 
     private final String email;
-    private final String firstname;
+    private final Gender gender;
+    private final String firstName;
     private final String middleName;
     private final String lastName;
     private final Date dateOfBirth;
@@ -16,10 +18,11 @@ public class Profile extends AbstractModel{
     private final int socialSecurityNumber;
     private final int taxNumber;
 
-    public Profile(int id, String email, String firstname, String middleName, String lastName, Date dateOfBirth, int institutionId, int majorId, int studentId, int socialSecurityNumber, int taxNumber) {
+    public Profile(int id, String email, Gender gender, String firstName, String middleName, String lastName, Date dateOfBirth, int institutionId, int majorId, int studentId, int socialSecurityNumber, int taxNumber) {
         super(id);
         this.email = email;
-        this.firstname = firstname;
+        this.gender = gender;
+        this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -28,5 +31,49 @@ public class Profile extends AbstractModel{
         this.studentId = studentId;
         this.socialSecurityNumber = socialSecurityNumber;
         this.taxNumber = taxNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public int getInstitutionId() {
+        return institutionId;
+    }
+
+    public int getMajorId() {
+        return majorId;
+    }
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public int getSocialSecurityNumber() {
+        return socialSecurityNumber;
+    }
+
+    public int getTaxNumber() {
+        return taxNumber;
     }
 }

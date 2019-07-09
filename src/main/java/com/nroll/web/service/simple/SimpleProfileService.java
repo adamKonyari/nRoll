@@ -22,9 +22,11 @@ public class SimpleProfileService implements ProfileService {
         String[] params = searchParam.split("\\s+");
         List<Profile> profileList = new ArrayList<>();
         for(String param: params) {
-            for(Profile profile: profileDao.findAllByNameOrEmail(param)) {
-                if(!profileList.contains(profile)) {
-                    profileList.add(profile);
+            if(params.length == 1) {
+                for (Profile profile : profileDao.findAllByOne(param)) {
+                    if (!profileList.contains(profile)) {
+                        profileList.add(profile);
+                    }
                 }
             }
         }

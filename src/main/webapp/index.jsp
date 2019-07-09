@@ -13,10 +13,12 @@
     <c:url value="script/login.js" var="loginScriptUrl"/>
     <c:url value="script/tab.js" var="tabScriptUrl"/>
     <c:url value="script/search.js" var="searchScriptUrl"/>
+    <c:url value="script/table.js" var="tableScriptUrl"/>
     <script src="${indexScriptUrl}"></script>
     <script src="${loginScriptUrl}"></script>
     <script src="${tabScriptUrl}"></script>
     <script src="${searchScriptUrl}"></script>
+    <script src="${tableScriptUrl}"></script>
 </head>
 <body>
 <div class="loginBox content" id="loginDiv">
@@ -43,7 +45,8 @@
         </div>
     </div>
     <div id="search" class="tabContent">
-        <p>search content</p>
+        <div id="searchResultDivEl">
+        </div>
     </div>
     <div id="profiles" class="tabContent">
         <p>Profiles content</p>

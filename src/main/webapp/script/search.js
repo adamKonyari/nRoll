@@ -8,6 +8,7 @@ function onSearchButtonClicked() {
                 let profileList = data;
                 console.log(data);
                 document.getElementById("defaultOpen").click();
+                createProfileTable(profileList);
             })
             .catch((error) => {
                 console.log(error);

@@ -18,11 +18,13 @@ DROP TYPE IF EXISTS application_status CASCADE;
 DROP TYPE IF EXISTS user_type CASCADE;
 DROP TYPE IF EXISTS profile_status CASCADE;
 DROP TYPE IF EXISTS institution_type CASCADE;
+DROP TYPE IF EXISTS gender CASCADE;
 
 -- creating enums
 CREATE TYPE user_type AS ENUM ('ADMIN', 'USER');
 CREATE TYPE institution_type AS ENUM ('UNIVERSITY', 'HIGH_SCHOOL');
 CREATE TYPE profile_status AS ENUM ('ACTIVE', 'INACTIVE');
+CREATE TYPE gender AS ENUM ('MALE', 'FEMALE');
 CREATE TYPE application_status AS ENUM ('HIRED', 'FIRED', 'DECLINED', 'INTERVIEW', 'REVIEW');
 
 -- creating tables
@@ -36,7 +38,7 @@ CREATE TABLE users (
   company_id  int REFERENCES company (id),
   email       varchar(40) UNIQUE,
   password    varchar(100), -- length is defined for hashed passwords
-  firstname   varchar(40),
+  first_name  varchar(40),
   middle_name varchar(40),
   last_name   varchar(40),
   type        user_type
@@ -61,7 +63,8 @@ CREATE TABLE institution_major (
 CREATE TABLE profile (
   id             serial PRIMARY KEY,
   email          varchar(40) UNIQUE,
-  firstname      varchar(40),
+  gender         gender,
+  first_name     varchar(40),
   middle_name    varchar(40),
   last_name      varchar(40),
   dob            date, -- date of birth
@@ -138,13 +141,58 @@ VALUES ('MEISZ');
 INSERT INTO users (company_id, email, password, type)
 VALUES (1, 'admin@admin.com', 'Admin1234', 'ADMIN');
 
-INSERT INTO profile (email, firstname, middle_name, last_name, dob, institution_id, major_id, student_id, ss_number,tax_number, status)
-VALUES ('trump@test.com', 'Donald', NULL, 'Trump', '1946-01-01', 1, 1, 123, 1234, 12345, 'ACTIVE');
+INSERT INTO profile (email,
+                     gender,
+                     first_name,
+                     middle_name,
+                     last_name,
+                     dob,
+                     institution_id,
+                     major_id,
+                     student_id,
+                     ss_number,
+                     tax_number,
+                     status)
+VALUES ('trump@test.com', 'MALE', 'Donald', NULL, 'Trump', '1946-01-01', 1, 1, 123, 1234, 12345, 'ACTIVE');
 
-INSERT INTO profile (email, firstname, middle_name, last_name, dob, institution_id, major_id, student_id, ss_number,tax_number, status)
-VALUES ('nixon@test.com', 'Richard', NULL, 'Nixon', '1913-01-01', 2, 1, 123, 1234, 12345, 'ACTIVE');
+INSERT INTO profile (email,
+                     gender,
+                     first_name,
+                     middle_name,
+                     last_name,
+                     dob,
+                     institution_id,
+                     major_id,
+                     student_id,
+                     ss_number,
+                     tax_number,
+                     status)
+VALUES ('nixon@test.com', 'MALE', 'Richard', NULL, 'Nixon', '1913-01-01', 2, 1, 123, 1234, 12345, 'ACTIVE');
 
-INSERT INTO profile (email, firstname, middle_name, last_name, dob, institution_id, major_id, student_id, ss_number,tax_number, status)
-VALUES ('gwb@test.com', 'George', 'W.', 'Bush', '1946-01-01', 2, 2, 123, 1234, 12345, 'ACTIVE');
+INSERT INTO profile (email,
+                     gender,
+                     first_name,
+                     middle_name,
+                     last_name,
+                     dob,
+                     institution_id,
+                     major_id,
+                     student_id,
+                     ss_number,
+                     tax_number,
+                     status)
+VALUES ('gwb@test.com', 'MALE', 'George', 'W.', 'Bush', '1946-01-01', 2, 2, 123, 1234, 12345, 'ACTIVE');
 
-SELECT * FROM profile WHERE firstname = 'George' OR last_name = 'Nixon' OR email = 'trump@test.com';
+INSERT INTO profile (email,
+                     gender,
+                     first_name,
+                     middle_name,
+                     last_name,
+                     dob,
+                     institution_id,
+                     major_id,
+                     student_id,
+                     ss_number,
+                     tax_number,
+                     status)
+VALUES ('mt@test.com', 'FEMALE', 'Milena', NULL, 'Trump', '1970-01-01', 1, 1, 123, 1234, 12345, 'ACTIVE');

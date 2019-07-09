@@ -2,5 +2,5 @@ package com.nroll.web.model.enums;
 
 public enum InstitutionType {
     UNIVERSITY,
-    HIGH_SCHOOL
+    HIGH_SCHOOL;
 }

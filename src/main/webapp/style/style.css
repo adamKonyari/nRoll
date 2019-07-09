@@ -205,6 +205,27 @@ h1 {
     animation: fadeEffect 1s; /* Fading effect takes 1 second */
 }
 
+#searchResultDivEl table {
+    display: table;
+    width: 100%;
+}
+
+#searchResultDivEl table, tr, td, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#searchResultDivEl th
+{
+    background: rgba(0,0,0,0.31);
+    cursor: pointer;
+}
+#searchResultDivEl tr:hover td
+{
+    background-color: steelblue;
+    cursor: pointer;
+}
+
 @keyframes fadeEffect {
     from {opacity: 0;}
     to {opacity: 1;}

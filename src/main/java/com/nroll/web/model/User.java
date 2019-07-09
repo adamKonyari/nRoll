@@ -8,7 +8,7 @@ public class User extends AbstractModel {
 
     private final String email;
     private final String password;
-    private final String firstname;
+    private final String firstName;
     private final String middleName;
     private final String lastName;
     private final int companyId;
@@ -18,7 +18,7 @@ public class User extends AbstractModel {
         super(id);
         this.email = email;
         this.password = password;
-        this.firstname = firstname;
+        this.firstName = firstname;
         this.middleName = middleName;
         this.lastName = lastName;
         this.companyId = companyId;
@@ -33,8 +33,8 @@ public class User extends AbstractModel {
         return password;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
     public String getMiddleName() {
