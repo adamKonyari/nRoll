@@ -14,11 +14,13 @@
     <c:url value="script/tab.js" var="tabScriptUrl"/>
     <c:url value="script/search.js" var="searchScriptUrl"/>
     <c:url value="script/table.js" var="tableScriptUrl"/>
+    <c:url value="script/profile.js" var="profileScriptUrl"/>
     <script src="${indexScriptUrl}"></script>
     <script src="${loginScriptUrl}"></script>
     <script src="${tabScriptUrl}"></script>
     <script src="${searchScriptUrl}"></script>
     <script src="${tableScriptUrl}"></script>
+    <script src="${profileScriptUrl}"></script>
 </head>
 <body>
 <div class="loginBox content" id="loginDiv">
@@ -38,10 +40,10 @@
         <button class="tabLinks" onclick="openTab(event, 'companies')">Companies</button>
         <button class="tabLinks" onclick="openTab(event, 'positions')">Positions</button>
         <div class="search-container">
-        <form id="searchForm" onsubmit="return false;">
-            <input type="text" placeholder="Search..." name="search" id="searchInput">
-            <button id="searchButton"><i class="fa fa-search"></i></button>
-        </form>
+            <form id="searchForm" onsubmit="return false;">
+                <input type="text" placeholder="Search..." name="search" id="searchInput">
+                <button id="searchButton"><i class="fa fa-search"></i></button>
+            </form>
         </div>
     </div>
     <div id="search" class="tabContent">
@@ -49,7 +51,46 @@
         </div>
     </div>
     <div id="profiles" class="tabContent">
-        <p>Profiles content</p>
+        <div id="profileFromDiv" class="profileFromDiv">
+            <h1>New Profile<span>Fill the form in order to create a new profile!</span></h1>
+            <form>
+                <div class="section"><span>1</span>Personal info</div>
+                <div class="inner-wrap">
+                    <input type="text" name="firstNameField" id="profileFirstNameInput" placeholder="First name">
+                    <input type="text" name="middleNameField" id="profileMiddleNameInput" placeholder="Middle name" disabled>
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="middleNameCheckbox">
+                        <label class="onoffswitch-label" for="middleNameCheckbox"></label>
+                    </div>
+                    <input type="text" name="lastNameField" id="profileLastNameInput" placeholder="Last name">
+                    <div id="dateOfBirthInputDiv">
+                        <input type="date" id="profileDateOfBirthInput">
+                    </div>
+                    <div>
+                        <input type="radio" name="male" value="MALE" id="profileGenderMaleInput"> Male<br>
+                        <input type="radio" name="female" value="FEMALE" id="profileGenderFemaleInput"> Female<br>
+                    </div>
+                </div>
+
+                <div class="section"><span>2</span>Contact info</div>
+                <div class="inner-wrap" id="contactInfoWrapper">
+                    <input type="email" name="field3" placeholder="Email" id="profileEmailInput">
+                    <input type="text" name="field4" placeholder="Phone" id="profilePhoneNumberInput">
+                </div>
+
+                <div class="section"><span>3</span>Passwords</div>
+                <div class="inner-wrap">
+                    <label>Password <input type="password" name="field5"/></label>
+                    <label>Confirm Password <input type="password" name="field6"/></label>
+                </div>
+                <div class="button-section">
+                    <input type="submit" name="Sign Up"/>
+                    <span class="privacy-policy">
+     <input type="checkbox" name="field7">You agree to our Terms and Policy.
+     </span>
+                </div>
+            </form>
+        </div>
     </div>
     <div id="companies" class="tabContent">
         <p>Companies content</p>

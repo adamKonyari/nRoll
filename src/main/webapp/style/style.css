@@ -209,19 +209,15 @@ h1 {
     display: table;
     width: 100%;
 }
-
 #searchResultDivEl table, tr, td, th {
     border: 1px solid black;
     border-collapse: collapse;
 }
-
-#searchResultDivEl th
-{
+#searchResultDivEl th {
     background: rgba(0,0,0,0.31);
     cursor: pointer;
 }
-#searchResultDivEl tr:hover td
-{
+#searchResultDivEl tr:hover td {
     background-color: steelblue;
     cursor: pointer;
 }
@@ -230,6 +226,174 @@ h1 {
     from {opacity: 0;}
     to {opacity: 1;}
 }
+
+.onoffswitch {
+    position: relative; width: 69px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    height: 28px; padding: 0; line-height: 28px;
+    border: 2px solid #999999; border-radius: 28px;
+    background-color: #ADADAD;
+    transition: background-color 0.3s ease-in;
+}
+.onoffswitch-label:before {
+    content: "";
+    display: block; width: 28px; margin: 0px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 39px;
+    border: 2px solid #999999; border-radius: 28px;
+    transition: all 0.3s ease-in 0s;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+    background-color: #11FF00;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    border-color: #11FF00;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    right: 0px;
+}
+
+.profileFromDiv{
+    float: left;
+    width:450px;
+    padding:30px;
+    margin:40px auto;
+    background: #FFF;
+    border-radius: 10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+}
+.profileFromDiv .inner-wrap{
+    padding: 30px;
+    background: #F8F8F8;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+.profileFromDiv h1{
+    background: #2E4053;
+    padding: 20px 30px 15px 30px;
+    margin: -30px -30px 30px -30px;
+    border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+    font: normal 30px 'Bitter', serif;
+    -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    border: 1px solid #2E4053;
+}
+.profileFromDiv h1 > span{
+    display: block;
+    margin-top: 2px;
+    font: 13px Arial, Helvetica, sans-serif;
+}
+.profileFromDiv label{
+    display: block;
+    font: 13px Arial, Helvetica, sans-serif;
+    color: #888;
+}
+.profileFromDiv #dateOfBirthInput {
+    display: inline-block;
+    width: 80%;
+    font-size: 16px;
+}
+.profileFromDiv #dateOfBirthInputDiv {
+    float: left;
+    width: 50%;
+}
+.profileFromDiv #profileMiddleNameInput {
+    float: right;
+    width: 82%;
+}
+.profileFromDiv input[type="text"],
+.profileFromDiv input[type="date"],
+.profileFromDiv input[type="datetime"],
+.profileFromDiv input[type="email"],
+.profileFromDiv input[type="number"],
+.profileFromDiv input[type="search"],
+.profileFromDiv input[type="time"],
+.profileFromDiv input[type="url"],
+.profileFromDiv input[type="password"],
+.profileFromDiv textarea,
+.profileFromDiv select {
+    display: block;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border: 2px solid #fff;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+    -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+}
+
+.profileFromDiv .section{
+    font: normal 20px 'Bitter', serif;
+    color: #2E4053;
+    margin-bottom: 5px;
+}
+.profileFromDiv .section span {
+    background: #2E4053;
+    padding: 5px 10px 5px 10px;
+    position: absolute;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border: 4px solid #fff;
+    font-size: 14px;
+    margin-left: -45px;
+    color: #fff;
+    margin-top: -3px;
+}
+.profileFromDiv input[type="button"],
+.profileFromDiv input[type="submit"]{
+    background: #2A88AD;
+    padding: 8px 20px 8px 20px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+    font: normal 30px 'Bitter', serif;
+    -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    border: 1px solid #257C9E;
+    font-size: 15px;
+}
+.profileFromDiv input[type="button"]:hover,
+.profileFromDiv input[type="submit"]:hover{
+    background: #2A6881;
+    -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+    -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+    box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+}
+.profileFromDiv .privacy-policy{
+    float: right;
+    width: 250px;
+    font: 12px Arial, Helvetica, sans-serif;
+    color: #4D4D4D;
+    margin-top: 10px;
+    text-align: right;
+}
+
+
 
 /*
 color for "dark-orange" text: #ff8a00

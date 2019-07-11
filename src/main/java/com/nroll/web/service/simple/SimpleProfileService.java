@@ -21,12 +21,10 @@ public class SimpleProfileService implements ProfileService {
     public List<Profile> findAllByNameOrEmail(String searchParam) throws SQLException, ServiceException {
         String[] params = searchParam.split("\\s+");
         List<Profile> profileList = new ArrayList<>();
-        for(String param: params) {
-            if(params.length == 1) {
-                for (Profile profile : profileDao.findAllByOne(param)) {
-                    if (!profileList.contains(profile)) {
-                        profileList.add(profile);
-                    }
+        for (String param : params) {
+            for (Profile profile : profileDao.findAllByOne(param)) {
+                if (!profileList.contains(profile)) {
+                    profileList.add(profile);
                 }
             }
         }

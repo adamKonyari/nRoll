@@ -56,4 +56,5 @@ document.addEventListener('DOMContentLoaded', () => {
     loginDivEl = document.getElementById('loginDiv');
     document.getElementById('login-button').addEventListener('click', onLoginButtonClicked);
     document.getElementById('searchButton').addEventListener('click', onSearchButtonClicked);
+    document.getElementById('middleNameCheckbox').addEventListener('change', onMiddleNameChecked);
 });
