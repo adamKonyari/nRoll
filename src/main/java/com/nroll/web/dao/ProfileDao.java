@@ -10,5 +10,5 @@ import java.util.List;
 public interface ProfileDao {
     List<Profile> findAllActive() throws SQLException;
     List<Profile> findAllByOne(String searchParam) throws SQLException;
-    public void addProfile(String email, String firstName, String middleName, String lastName, Date dateOfBirth, Gender gender, int institutionId, int majorId, int studentId, int socialSecurityNumber, int taxNumber) throws SQLException;
+    public int addProfile(String email, String firstName, String middleName, String lastName, String dateOfBirth, Gender gender, int institutionId, int majorId, int studentId, int socialSecurityNumber, int taxNumber) throws SQLException;
 }

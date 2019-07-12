@@ -1,5 +1,5 @@
 function sortTable(table, cellIndex, isAscending) {
-    sortElements([].slice.call(table.rows, 1), function(r1, r2) {
+    sortElements([].slice.call(table.rows, 1), function (r1, r2) {
         return compareRows(cellIndex, isAscending, r1, r2);
     });
 }
@@ -26,8 +26,7 @@ function compareRows(cellIndex, isAscending, r1, r2) {
     if (!isNaN(d1) && !isNaN(d2)) {
         s1 = d1.valueOf();
         s2 = d2.valueOf();
-    }
-    else if (!isNaN(n1) && !isNaN(n2)) {
+    } else if (!isNaN(n1) && !isNaN(n2)) {
         s1 = n1;
         s2 = n2;
     }
@@ -54,20 +53,28 @@ function getText(el) {
 }
 
 function createProfileTable(profileList) {
-    let searchDivEl = document.getElementById('searchResultDivEl');
+    let searchDivEl = document.getElementById("searchResultDivEl");
     searchDivEl.removeChild(searchDivEl.firstChild);
-    let table = document.createElement('table');
-    table.setAttribute('id', 'profileResultTable');
-    let thead = document.createElement('thead');
+    let table = document.createElement("table");
+    table.setAttribute("id", "profileResultTable");
+    let thead = document.createElement("thead");
     let tr = thead.insertRow(-1);
-    const tableHeaderTitles = ['First name', 'Last name', 'Email', 'Date of birth', 'Tax number', 'Gender'];
-    for(let i = 0; i < tableHeaderTitles.length; i++) {
-        var th = document.createElement('th');
+    const tableHeaderTitles = [
+        "First name",
+        "Last name",
+        "Email",
+        "Date of birth",
+        "Tax number",
+        "Gender"
+    ];
+    for (let i = 0; i < tableHeaderTitles.length; i++) {
+        var th = document.createElement("th");
         th.innerHTML = tableHeaderTitles[i];
         tr.appendChild(th);
     }
-    let tbody = document.createElement('tbody');
+    let tbody = document.createElement("tbody");
     profileList.forEach(forEachProfile);
+
     function forEachProfile(profile) {
         tr = tbody.insertRow(-1);
         let firstName = tr.insertCell(-1);
@@ -77,22 +84,23 @@ function createProfileTable(profileList) {
         let email = tr.insertCell(-1);
         email.innerHTML = profile.email;
         let dateOfBirth = tr.insertCell(-1);
-        let date = new Date(Number(profile.dateOfBirth));
-        dateOfBirth.innerHTML = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+        let dob = profile.dateOfBirth;
+        dateOfBirth.innerHTML = dob;
         let taxNumber = tr.insertCell(-1);
         taxNumber.innerHTML = profile.taxNumber;
         let gender = tr.insertCell(-1);
         gender.innerHTML = profile.gender;
         tbody.appendChild(tr);
     }
+
     table.appendChild(thead);
     table.appendChild(tbody);
-    table.rows[0].onclick = (e) => {
-        e =e || window.event;
+    table.rows[0].onclick = e => {
+        e = e || window.event;
         let target = e.target || e.srcElement;
         target.sortDir = target.sortDir == "a" ? "d" : "a";
         sortTable(table, target.cellIndex, target.sortDir == "a");
     };
-    let divContainer = document.getElementById('searchResultDivEl');
+    let divContainer = document.getElementById("searchResultDivEl");
     divContainer.appendChild(table);
 }

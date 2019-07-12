@@ -10,7 +10,7 @@ public class Profile extends AbstractModel {
     private final String firstName;
     private final String middleName;
     private final String lastName;
-    private final Date dateOfBirth;
+    private final String dateOfBirth;
     private final Gender gender;
     private final int institutionId;
     private final int majorId;
@@ -18,7 +18,7 @@ public class Profile extends AbstractModel {
     private final int socialSecurityNumber;
     private final int taxNumber;
 
-    public Profile(int id, String email, String firstName, String middleName, String lastName, Date dateOfBirth, Gender gender, int institutionId, int majorId, int studentId, int socialSecurityNumber, int taxNumber) {
+    public Profile(int id, String email, String firstName, String middleName, String lastName, String dateOfBirth, Gender gender, int institutionId, int majorId, int studentId, int socialSecurityNumber, int taxNumber) {
         super(id);
         this.email = email;
         this.firstName = firstName;
@@ -49,7 +49,7 @@ public class Profile extends AbstractModel {
         return lastName;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 

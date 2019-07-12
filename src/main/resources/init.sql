@@ -67,7 +67,7 @@ CREATE TABLE profile (
   first_name     varchar(40),
   middle_name    varchar(40),
   last_name      varchar(40),
-  dob            date, -- date of birth
+  date_of_birth  varchar(10), -- date of birth
   institution_id int REFERENCES institution (id),
   major_id       int REFERENCES major (id),
   student_id     int,
@@ -77,11 +77,13 @@ CREATE TABLE profile (
 );
 
 CREATE TABLE phone (
+  id serial PRIMARY KEY,
   profile_id int REFERENCES profile (id),
   number     varchar(20)
 );
 
 CREATE TABLE address (
+  id serial PRIMARY KEY,
   profile_id int REFERENCES profile (id),
   zip        varchar(10),
   address    varchar(40),
@@ -146,7 +148,7 @@ INSERT INTO profile (email,
                      first_name,
                      middle_name,
                      last_name,
-                     dob,
+                     date_of_birth,
                      institution_id,
                      major_id,
                      student_id,
@@ -160,7 +162,7 @@ INSERT INTO profile (email,
                      first_name,
                      middle_name,
                      last_name,
-                     dob,
+                     date_of_birth,
                      institution_id,
                      major_id,
                      student_id,
@@ -174,7 +176,7 @@ INSERT INTO profile (email,
                      first_name,
                      middle_name,
                      last_name,
-                     dob,
+                     date_of_birth,
                      institution_id,
                      major_id,
                      student_id,
@@ -188,7 +190,7 @@ INSERT INTO profile (email,
                      first_name,
                      middle_name,
                      last_name,
-                     dob,
+                     date_of_birth,
                      institution_id,
                      major_id,
                      student_id,

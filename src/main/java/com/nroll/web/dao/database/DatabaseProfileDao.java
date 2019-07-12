@@ -45,8 +45,9 @@ public class DatabaseProfileDao extends AbstractDao implements ProfileDao {
         return profileList;
     }
 
-    public void addProfile(String email, String firstName, String middleName, String lastName, Date dateOfBirth, Gender gender, int institutionId, int majorId, int studentId, int socialSecurityNumber, int taxNumber) throws SQLException {
-        if (email == null || "".equals(email))  {
+    public int addProfile(String email, String firstName, String middleName, String lastName, String dateOfBirth, Gender gender, int institutionId, int majorId, int studentId, int socialSecurityNumber, int taxNumber) throws SQLException {
+        int id;
+        if (email == null || "".equals(email)) {
             throw new IllegalArgumentException("Email cannot be null or empty");
         }
         String sql = "INSERT INTO profile (email, first_name, middle_name, last_name, dob, gender, institution_id, major_id, student_id, ss_number, tax_number, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'ACTIVE')";
@@ -55,7 +56,7 @@ public class DatabaseProfileDao extends AbstractDao implements ProfileDao {
             statement.setString(2, firstName);
             statement.setString(3, middleName);
             statement.setString(4, lastName);
-            statement.setString(5, new SimpleDateFormat("yyyy-MM-dd").format(dateOfBirth));
+            statement.setString(5, dateOfBirth);
             statement.setString(6, String.valueOf(gender));
             statement.setInt(7, institutionId);
             statement.setInt(8, majorId);
@@ -63,10 +64,10 @@ public class DatabaseProfileDao extends AbstractDao implements ProfileDao {
             statement.setInt(10, socialSecurityNumber);
             statement.setInt(11, taxNumber);
             executeInsert(statement);
+            id = fetchGeneratedId(statement);
         }
-
+        return id;
     }
-
 
 
     private Profile fetchProfile(ResultSet resultSet) throws SQLException {
@@ -76,7 +77,7 @@ public class DatabaseProfileDao extends AbstractDao implements ProfileDao {
         String firstName = resultSet.getString("first_name");
         String middleName = resultSet.getString("middle_name");
         String lastName = resultSet.getString("last_name");
-        Date dateOfBirth = resultSet.getDate("dob");
+        String dateOfBirth = resultSet.getString("date_of_birth");
         int institutionId = resultSet.getInt("institution_id");
         int majorId = resultSet.getInt("major_id");
         int studentId = resultSet.getInt("student_id");
