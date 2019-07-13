@@ -23,8 +23,8 @@ public class PhoneServlet extends AbstractServlet{
         try (Connection connection = getConnection(req.getServletContext())) {
             PhoneDao phoneDao = new DatabasePhoneDao(connection);
             PhoneService phoneService = new SimplePhoneService(phoneDao);
-            int profileId = Integer.parseInt(req.getParameter("profileId"));
-            String phoneNumber = req.getParameter("phoneNumber");
+            int profileId = (int) req.getAttribute("profileId");
+            String phoneNumber = req.getParameter("phone");
             phoneService.addPhone(profileId, phoneNumber);
         } catch (SQLException e) {
             e.printStackTrace();

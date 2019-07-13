@@ -18,8 +18,8 @@ function onSaveProfileButtonClicked() {
     let zip = document.getElementById('profileZipInput').value;
     let city = document.getElementById('profileCityInput').value;
     let address = document.getElementById('profileAddressInput').value;
-    let institution = document.getElementById('profileInstitutionInput').value;
-    let major = document.getElementById('profileMajorInput').value;
+    let institutionId = document.getElementById('profileInstitutionInput').value;
+    let majorId = document.getElementById('profileMajorInput').value;
     let studentId = document.getElementById('profileStudentIdInput').value;
     let socialSecurityNumber = document.getElementById('profileSocialSecurityInput').value;
     let taxNumber = document.getElementById('profileTaxNumberInput').value;
@@ -34,8 +34,9 @@ function onSaveProfileButtonClicked() {
     params.append('country', country);
     params.append('zip', zip);
     params.append('city', city);
-    params.append('institution', institution);
-    params.append('major', major);
+    params.append('address', address);
+    params.append('institutionId', institutionId);
+    params.append('majorId', majorId);
     params.append('studentId', studentId);
     params.append('socialSecurityNumber', socialSecurityNumber);
     params.append('taxNumber', taxNumber);

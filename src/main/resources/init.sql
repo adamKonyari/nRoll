@@ -125,6 +125,12 @@ CREATE TABLE application_note (
 
 -- test inserts
 
+INSERT INTO major (name)
+VALUES ('Not set');
+
+INSERT INTO institution (name, type)
+VALUES ('Not set', 'UNIVERSITY');
+
 INSERT INTO institution (name, type)
 VALUES ('University of California', 'UNIVERSITY');
 

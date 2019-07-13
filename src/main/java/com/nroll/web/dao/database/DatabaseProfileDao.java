@@ -4,10 +4,7 @@ import com.nroll.web.dao.ProfileDao;
 import com.nroll.web.model.Profile;
 import com.nroll.web.model.enums.Gender;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -46,12 +43,13 @@ public class DatabaseProfileDao extends AbstractDao implements ProfileDao {
     }
 
     public int addProfile(String email, String firstName, String middleName, String lastName, String dateOfBirth, Gender gender, int institutionId, int majorId, int studentId, int socialSecurityNumber, int taxNumber) throws SQLException {
-        int id;
         if (email == null || "".equals(email)) {
             throw new IllegalArgumentException("Email cannot be null or empty");
         }
-        String sql = "INSERT INTO profile (email, first_name, middle_name, last_name, dob, gender, institution_id, major_id, student_id, ss_number, tax_number, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'ACTIVE')";
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+        boolean autoCommit = connection.getAutoCommit();
+        connection.setAutoCommit(false);
+        String sql = "INSERT INTO profile (email, first_name, middle_name, last_name, date_of_birth, gender, institution_id, major_id, student_id, ss_number, tax_number, status) VALUES (?, ?, ?, ?, ?, CAST(? AS gender), ?, ?, ?, ?, ?, 'ACTIVE')";
+        try (PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, email);
             statement.setString(2, firstName);
             statement.setString(3, middleName);
@@ -64,10 +62,17 @@ public class DatabaseProfileDao extends AbstractDao implements ProfileDao {
             statement.setInt(10, socialSecurityNumber);
             statement.setInt(11, taxNumber);
             executeInsert(statement);
-            id = fetchGeneratedId(statement);
+            int id = fetchGeneratedId(statement);
+            connection.commit();
+            return id;
+        } catch (SQLException ex) {
+            connection.rollback();
+            throw ex;
+        } finally {
+            connection.setAutoCommit(autoCommit);
         }
-        return id;
     }
+
 
 
     private Profile fetchProfile(ResultSet resultSet) throws SQLException {

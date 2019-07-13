@@ -89,10 +89,10 @@
                 <div class="section"><span>3</span>Studies</div>
                 <div class="inner-wrap">
                     <select id="profileInstitutionInput">
-                        <option default value="default">Institution</option>
+                        <option default value="1">Institution</option>
                     </select>
                     <select id="profileMajorInput">
-                        <option default value="default">Major</option>
+                        <option default value="1">Major</option>
                     </select>
                 </div>
                 <div class="section"><span>4</span>Serial numbers</div>

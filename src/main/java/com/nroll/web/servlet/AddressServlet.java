@@ -22,7 +22,7 @@ public class AddressServlet extends AbstractServlet {
         try (Connection connection = getConnection(req.getServletContext())) {
             AddressDao addressDao = new DatabaseAddressDao(connection);
             AddressService addressService = new SimpleAddressService(addressDao);
-            int profileId = Integer.parseInt(req.getParameter("profileId"));
+            int profileId = (int) req.getAttribute("profileId");
             int zip = Integer.parseInt(req.getParameter("zip"));
             String address = req.getParameter("address");
             String city = req.getParameter("city");
