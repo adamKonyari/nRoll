@@ -67,7 +67,7 @@ h1 {
     font-size: 20px;
 }
 
-.login-button {
+.loginButton {
     border-radius: 15px;
     background-color: #f4511e;
     border: none;
@@ -82,14 +82,14 @@ h1 {
     display: block;
 }
 
-.login-button span {
+.loginButton span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
 }
 
-.login-button span:after {
+.loginButton span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
@@ -98,11 +98,11 @@ h1 {
     transition: 0.5s;
 }
 
-.login-button:hover span {
+.loginButton:hover span {
     padding-right: 25px;
 }
 
-.login-button:hover span:after {
+.loginButton:hover span:after {
     opacity: 1;
     right: 0;
 }
@@ -311,20 +311,33 @@ h1 {
 }
 
 .profileFromDiv #profileDayInput {
-
+    float: left;
+    width: 38px;
 }
 
 .profileFromDiv #profileMonthInput {
-
+    float: left;
+    width: 38px;
 }
 
 .profileFromDiv #profileYearInput {
-
+    float: left;
+    width: 48px;
 }
 .profileFromDiv #profileMiddleNameInput {
     float: right;
     width: 82%;
 }
+
+.profileFromDiv #profileZipInputField {
+    float:left;
+    width: 50%;
+}
+
+.profileFromDiv #profileCityInputField {
+    width: 50%;
+}
+
 .profileFromDiv input[type="text"],
 .profileFromDiv input[type="date"],
 .profileFromDiv input[type="datetime"],
@@ -399,6 +412,28 @@ h1 {
     color: #4D4D4D;
     margin-top: 10px;
     text-align: right;
+}
+
+.saveButton {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #2E4053;
+    border: none;
+    border-radius: 15px;
+    display: block;
+    margin: 0px auto;
+}
+
+.saveButton:hover {background-color: #182835;
+}
+
+.saveButton:active {
+    background-color: #182835;
+    transform: translateY(4px);
 }
 
 

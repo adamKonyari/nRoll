@@ -9,6 +9,7 @@
     <c:url value="style/style.css" var="styleUrl"/>
     <link rel="stylesheet" type="text/css" href="${styleUrl}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <c:url value="script/index.js" var="indexScriptUrl"/>
     <c:url value="script/login.js" var="loginScriptUrl"/>
     <c:url value="script/tab.js" var="tabScriptUrl"/>
@@ -30,7 +31,7 @@
         <input type="text" name="email" placeholder="Email" id="login-email">
         <input type="password" name="password" placeholder="Password" id="login-password">
     </form>
-    <button class="login-button" id="login-button"><span>Login </span></button>
+    <button class="loginButton" id="login-button"><span>Login </span></button>
 </div>
 
 <div class="hidden content wrapper" id="mainDiv">
@@ -57,39 +58,51 @@
                 <div class="section"><span>1</span>Personal info</div>
                 <div class="inner-wrap">
                     <input type="text" name="firstNameField" id="profileFirstNameInput" placeholder="First name">
-                    <input type="text" name="middleNameField" id="profileMiddleNameInput" placeholder="Middle name" disabled>
+                    <input type="text" name="middleNameField" id="profileMiddleNameInput" placeholder="Middle name"
+                           disabled>
                     <div class="onoffswitch">
                         <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="middleNameCheckbox">
                         <label class="onoffswitch-label" for="middleNameCheckbox"></label>
                     </div>
                     <input type="text" name="lastNameField" id="profileLastNameInput" placeholder="Last name">
                     <div id="dateOfBirthInputDiv">
-                        <input type="text" id="profileDayInput">
-                        <input type="text" id="profileMonthInput">
-                        <input type="text" id="profileYearInput">
+                        <i class="material-icons" style="float:left">cake</i>
+                        <input type="text" name="yearField" id="profileYearInput" placeholder="YYYY" maxlength="4">
+                        <input type="text" name="monthField" id="profileMonthInput" placeholder="MM" maxlength="2">
+                        <input type="text" name="dayField" id="profileDayInput" placeholder="DD" maxlength="2">
                     </div>
-                    <div>
-                        <input type="radio" name="male" value="MALE" id="profileGenderMaleInput"> Male<br>
-                        <input type="radio" name="female" value="FEMALE" id="profileGenderFemaleInput"> Female<br>
+                    <div style="padding-top: 7px">
+                        <input type="radio" name="gender" value="MALE" id="profileGenderMaleInput"> Male ♂
+                        <input type="radio" name="gender" value="FEMALE" id="profileGenderFemaleInput"> Female ♀
                     </div>
                 </div>
-
                 <div class="section"><span>2</span>Contact info</div>
                 <div class="inner-wrap" id="contactInfoWrapper">
-                    <input type="email" name="field3" placeholder="Email" id="profileEmailInput">
-                    <input type="text" name="field4" placeholder="Phone" id="profilePhoneNumberInput">
+                    <input type="email" name="emailField" placeholder="Email" id="profileEmailInput"><br>
+                    <input type="text" name="phoneField" placeholder="Phone e.g. +36201234567" id="profilePhoneNumberInput"><br>
+                    <input type="text" name="countryField" placeholder="Country" id="countryInputField">
+                    <input type="text" name="zipField" placeholder="Zip code" id="profileZipInputField">
+                    <input type="text" name="cityField" placeholder="City" id="profileCityInputField">
+                    <input type="text" name="addressField" placeholder="Address" id="profileAddressInputField">
                 </div>
 
-                <div class="section"><span>3</span>Passwords</div>
+                <div class="section"><span>3</span>Studies</div>
                 <div class="inner-wrap">
-                    <label>Password <input type="password" name="field5"/></label>
-                    <label>Confirm Password <input type="password" name="field6"/></label>
+                    <select id="institutionSelect">
+                        <option default>Institution</option>
+                    </select>
+                    <select id="majorSelect">
+                        <option default>Major</option>
+                    </select>
                 </div>
-                <div class="button-section">
-                    <input type="submit" name="Sign Up"/>
-                    <span class="privacy-policy">
-     <input type="checkbox" name="field7">You agree to our Terms and Policy.
-     </span>
+                <div class="section"><span>4</span>Serial numbers</div>
+                <div class="inner-wrap">
+                    <input type="text" name="studentIdField" placeholder="Student ID" id="profileStudentIdInputField">
+                    <input type="text" name="socialSecurityNumberField" placeholder="Social security number" id="profileSocialSecurityInputField">
+                    <input type="text" name="taxNumberField" placeholder="Tax number" id="profileTaxNumberInputField">
+                </div>
+                <div class="inner-wrap">
+                    <button class="saveButton" id="saveProfileButton"><span>Save</span></button>
                 </div>
             </form>
         </div>
