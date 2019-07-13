@@ -2,6 +2,7 @@ package com.nroll.web.service.simple;
 
 import com.nroll.web.dao.ProfileDao;
 import com.nroll.web.model.Profile;
+import com.nroll.web.model.enums.Gender;
 import com.nroll.web.service.ProfileService;
 import com.nroll.web.service.exception.ServiceException;
 
@@ -29,5 +30,14 @@ public class SimpleProfileService implements ProfileService {
             }
         }
         return profileList;
+    }
+
+    @Override
+    public int addProfile(String email, String firstName, String middleName, String lastName, String dateOfBirth, Gender gender, int institutionId, int majorId, int studentId, int socialSecurityNumber, int taxNumber) throws SQLException, ServiceException {
+        try {
+            return profileDao.addProfile(email, firstName, middleName, lastName, dateOfBirth, gender, institutionId, majorId, studentId, socialSecurityNumber, taxNumber);
+        } catch (IllegalArgumentException ex) {
+            throw new ServiceException(ex.getMessage());
+        }
     }
 }

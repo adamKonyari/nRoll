@@ -64,7 +64,9 @@
                     </div>
                     <input type="text" name="lastNameField" id="profileLastNameInput" placeholder="Last name">
                     <div id="dateOfBirthInputDiv">
-                        <input type="date" id="profileDateOfBirthInput">
+                        <input type="text" id="profileDayInput">
+                        <input type="text" id="profileMonthInput">
+                        <input type="text" id="profileYearInput">
                     </div>
                     <div>
                         <input type="radio" name="male" value="MALE" id="profileGenderMaleInput"> Male<br>

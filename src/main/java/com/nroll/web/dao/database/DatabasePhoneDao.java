@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabasePhoneDao extends AbstractDao implements PhoneDao {
-    DatabasePhoneDao(Connection connection) {
+    public DatabasePhoneDao(Connection connection) {
         super(connection);
     }
 
@@ -26,7 +26,7 @@ public class DatabasePhoneDao extends AbstractDao implements PhoneDao {
                     phoneList.add(fetchPhone(resultSet));
                 }
             }
-            return null;
+            return phoneList;
         }
     }
 

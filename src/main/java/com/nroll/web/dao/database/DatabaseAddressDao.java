@@ -12,7 +12,7 @@ import java.util.List;
 
 public class DatabaseAddressDao extends AbstractDao implements AddressDao {
 
-    DatabaseAddressDao(Connection connection) {
+    public DatabaseAddressDao(Connection connection) {
         super(connection);
     }
 

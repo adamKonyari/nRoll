@@ -304,14 +304,22 @@ h1 {
     font: 13px Arial, Helvetica, sans-serif;
     color: #888;
 }
-.profileFromDiv #dateOfBirthInput {
-    display: inline-block;
-    width: 80%;
-    font-size: 16px;
-}
+
 .profileFromDiv #dateOfBirthInputDiv {
     float: left;
     width: 50%;
+}
+
+.profileFromDiv #profileDayInput {
+
+}
+
+.profileFromDiv #profileMonthInput {
+
+}
+
+.profileFromDiv #profileYearInput {
+
 }
 .profileFromDiv #profileMiddleNameInput {
     float: right;
