@@ -52,7 +52,7 @@
         </div>
     </div>
     <div id="profiles" class="tabContent">
-        <div id="profileFromDiv" class="profileFromDiv">
+        <div id="profileFromDiv" class="profileFromDiv" onsubmit="return false;">
             <h1>New Profile<span>Fill the form in order to create a new profile!</span></h1>
             <form>
                 <div class="section"><span>1</span>Personal info</div>
@@ -72,37 +72,37 @@
                         <input type="text" name="dayField" id="profileDayInput" placeholder="DD" maxlength="2">
                     </div>
                     <div style="padding-top: 7px">
-                        <input type="radio" name="gender" value="MALE" id="profileGenderMaleInput"> Male ♂
-                        <input type="radio" name="gender" value="FEMALE" id="profileGenderFemaleInput"> Female ♀
+                        <input type="radio" name="gender" value="MALE" id="profileMaleInput"> Male ♂
+                        <input type="radio" name="gender" value="FEMALE" id="profileFemaleInput"> Female ♀
                     </div>
                 </div>
                 <div class="section"><span>2</span>Contact info</div>
                 <div class="inner-wrap" id="contactInfoWrapper">
                     <input type="email" name="emailField" placeholder="Email" id="profileEmailInput"><br>
-                    <input type="text" name="phoneField" placeholder="Phone e.g. +36201234567" id="profilePhoneNumberInput"><br>
-                    <input type="text" name="countryField" placeholder="Country" id="countryInputField">
-                    <input type="text" name="zipField" placeholder="Zip code" id="profileZipInputField">
-                    <input type="text" name="cityField" placeholder="City" id="profileCityInputField">
-                    <input type="text" name="addressField" placeholder="Address" id="profileAddressInputField">
+                    <input type="text" name="phoneField" placeholder="Phone e.g. +36201234567" id="profilePhoneInput"><br>
+                    <input type="text" name="countryField" placeholder="Country" id="countryInput">
+                    <input type="text" name="zipField" placeholder="Zip code" id="profileZipInput">
+                    <input type="text" name="cityField" placeholder="City" id="profileCityInput">
+                    <input type="text" name="addressField" placeholder="Address" id="profileAddressInput">
                 </div>
 
                 <div class="section"><span>3</span>Studies</div>
                 <div class="inner-wrap">
-                    <select id="institutionSelect">
-                        <option default>Institution</option>
+                    <select id="profileInstitutionInput">
+                        <option default value="default">Institution</option>
                     </select>
-                    <select id="majorSelect">
-                        <option default>Major</option>
+                    <select id="profileMajorInput">
+                        <option default value="default">Major</option>
                     </select>
                 </div>
                 <div class="section"><span>4</span>Serial numbers</div>
                 <div class="inner-wrap">
-                    <input type="text" name="studentIdField" placeholder="Student ID" id="profileStudentIdInputField">
-                    <input type="text" name="socialSecurityNumberField" placeholder="Social security number" id="profileSocialSecurityInputField">
-                    <input type="text" name="taxNumberField" placeholder="Tax number" id="profileTaxNumberInputField">
+                    <input type="text" name="studentIdField" placeholder="Student ID" id="profileStudentIdInput">
+                    <input type="text" name="socialSecurityNumberField" placeholder="Social security number" id="profileSocialSecurityInput">
+                    <input type="text" name="taxNumberField" placeholder="Tax number" id="profileTaxNumberInput">
                 </div>
                 <div class="inner-wrap">
-                    <button class="saveButton" id="saveProfileButton"><span>Save</span></button>
+                    <button class="saveButton" id="saveProfileButton"><span>Save profile</span></button>
                 </div>
             </form>
         </div>

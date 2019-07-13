@@ -57,4 +57,5 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('login-button').addEventListener('click', onLoginButtonClicked);
     document.getElementById('searchButton').addEventListener('click', onSearchButtonClicked);
     document.getElementById('middleNameCheckbox').addEventListener('change', onMiddleNameChecked);
+    document.getElementById('saveProfileButton').addEventListener('click', onSaveProfileButtonClicked);
 });

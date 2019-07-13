@@ -329,12 +329,12 @@ h1 {
     width: 82%;
 }
 
-.profileFromDiv #profileZipInputField {
+.profileFromDiv #profileZipInput {
     float:left;
     width: 50%;
 }
 
-.profileFromDiv #profileCityInputField {
+.profileFromDiv #profileCityInput {
     width: 50%;
 }
 
