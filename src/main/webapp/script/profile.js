@@ -1,3 +1,28 @@
+function onProfileClicked() {
+    let activeProfile = JSON.parse(this.getAttribute('profile'));
+    document.getElementById('profileFirstNameInput').value = activeProfile.firstName;
+    document.getElementById('profileMiddleNameInput').value = activeProfile.middleName;
+    document.getElementById('profileLastNameInput').value = activeProfile.lastName;
+    document.getElementById('profileYearInput').value = activeProfile.dateOfBirth.slice(0,4);
+    document.getElementById('profileMonthInput').value = activeProfile.dateOfBirth.slice(5,7);
+    document.getElementById('profileDayInput').value = activeProfile.dateOfBirth.slice(8,10);
+    if(activeProfile.gender === "MALE") {
+        document.getElementById('profileMaleInput').click();
+    }else if(activeProfile.gender === "FEMALE") {
+        document.getElementById('profileFemaleInput').click();
+    }
+    document.getElementById('profileEmailInput').value = activeProfile.email;
+    document.getElementById('profilePhoneInput').value = activeProfile.phone;
+    document.getElementById('countryInput').value = activeProfile.country;
+    document.getElementById('profileZipInput').value = activeProfile.zip;
+    document.getElementById('profileCityInput').value = activeProfile.city;
+    document.getElementById('profileAddressInput').value = activeProfile.address;
+    document.getElementById('profileStudentIdInput').value = activeProfile.studentId;
+    document.getElementById('profileSocialSecurityInput').value = activeProfile.socialSecurityNumber;
+    document.getElementById('profileTaxNumberInput').value = activeProfile.taxNumber;
+    document.getElementById('profileTabButton').click();
+}
+
 function onSaveProfileButtonClicked() {
     let firstName = document.getElementById('profileFirstNameInput').value;
     let middleName = document.getElementById('profileMiddleNameInput').value;
@@ -23,6 +48,12 @@ function onSaveProfileButtonClicked() {
     let studentId = document.getElementById('profileStudentIdInput').value;
     let socialSecurityNumber = document.getElementById('profileSocialSecurityInput').value;
     let taxNumber = document.getElementById('profileTaxNumberInput').value;
+    let profileStatus;
+    if (document.getElementById("profileActiveInput").checked) {
+        profileStatus = 'ACTIVE';
+    } else if (document.getElementById("profilePassiveInput").checked) {
+        profileStatus = 'PASSIVE';
+    }
     let params = new URLSearchParams();
     params.append('firstName', firstName);
     params.append('middleName', middleName);
@@ -40,6 +71,7 @@ function onSaveProfileButtonClicked() {
     params.append('studentId', studentId);
     params.append('socialSecurityNumber', socialSecurityNumber);
     params.append('taxNumber', taxNumber);
+    params.append('profileStatus', profileStatus);
     postAsync('protected/profile', params)
         .then((message) => {
             console.log(message);

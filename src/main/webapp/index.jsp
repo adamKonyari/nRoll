@@ -37,7 +37,7 @@
 <div class="hidden content wrapper" id="mainDiv">
     <div class="topNav">
         <button class="tabLinks" onclick="openTab(event, 'search')" id="defaultOpen">Search</button>
-        <button class="tabLinks" onclick="openTab(event, 'profiles')">Profiles</button>
+        <button class="tabLinks" onclick="openTab(event, 'profiles')" id="profileTabButton">Profile</button>
         <button class="tabLinks" onclick="openTab(event, 'companies')">Companies</button>
         <button class="tabLinks" onclick="openTab(event, 'positions')">Positions</button>
         <div class="search-container">
@@ -48,7 +48,10 @@
         </div>
     </div>
     <div id="search" class="tabContent">
-        <div id="searchResultDivEl">
+        <div id="searchResultDiv">
+        </div>
+        <div id="activeProfileDiv" style="display: none;">
+            <p>test</p>
         </div>
     </div>
     <div id="profiles" class="tabContent">
@@ -102,6 +105,10 @@
                     <input type="text" name="taxNumberField" placeholder="Tax number" id="profileTaxNumberInput">
                 </div>
                 <div class="inner-wrap">
+                    <div style="text-align: center; padding-bottom: 15px">
+                        <input type="radio" name="profileStatus" value="ACTIVE" id="profileActiveInput"> ACTIVE
+                        <input type="radio" name="profileStatus" value="PASSIVE" id="profilePassiveInput"> PASSIVE
+                    </div>
                     <button class="saveButton" id="saveProfileButton"><span>Save profile</span></button>
                 </div>
             </form>

@@ -53,7 +53,9 @@ function getText(el) {
 }
 
 function createProfileTable(profileList) {
-    let searchDivEl = document.getElementById("searchResultDivEl");
+    document.getElementById('searchResultDiv').style.display = 'block';
+    document.getElementById('activeProfileDiv').style.display = 'none';
+    let searchDivEl = document.getElementById("searchResultDiv");
     searchDivEl.removeChild(searchDivEl.firstChild);
     let table = document.createElement("table");
     table.setAttribute("id", "profileResultTable");
@@ -90,6 +92,8 @@ function createProfileTable(profileList) {
         taxNumber.innerHTML = profile.taxNumber;
         let gender = tr.insertCell(-1);
         gender.innerHTML = profile.gender;
+        tr.setAttribute('profile', JSON.stringify(profile));
+        tr.addEventListener('click', onProfileClicked);
         tbody.appendChild(tr);
     }
 
@@ -101,6 +105,6 @@ function createProfileTable(profileList) {
         target.sortDir = target.sortDir == "a" ? "d" : "a";
         sortTable(table, target.cellIndex, target.sortDir == "a");
     };
-    let divContainer = document.getElementById("searchResultDivEl");
+    let divContainer = document.getElementById("searchResultDiv");
     divContainer.appendChild(table);
 }

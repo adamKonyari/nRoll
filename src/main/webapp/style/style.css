@@ -205,19 +205,19 @@ h1 {
     animation: fadeEffect 1s; /* Fading effect takes 1 second */
 }
 
-#searchResultDivEl table {
+#searchResultDiv table {
     display: table;
     width: 100%;
 }
-#searchResultDivEl table, tr, td, th {
+#searchResultDiv table, tr, td, th {
     border: 1px solid black;
     border-collapse: collapse;
 }
-#searchResultDivEl th {
+#searchResultDiv th {
     background: rgba(0,0,0,0.31);
     cursor: pointer;
 }
-#searchResultDivEl tr:hover td {
+#searchResultDiv tr:hover td {
     background-color: steelblue;
     cursor: pointer;
 }

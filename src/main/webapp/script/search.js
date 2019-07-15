@@ -5,10 +5,10 @@ function onSearchButtonClicked() {
         params.append('searchString', searchString);
         postAsync('protected/search', params)
             .then((data) => {
-                let profileList = data;
+                let activeProfileList = data;
                 console.log(data);
                 document.getElementById("defaultOpen").click();
-                createProfileTable(profileList);
+                createProfileTable(activeProfileList);
             })
             .catch((error) => {
                 console.log(error);

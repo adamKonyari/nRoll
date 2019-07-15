@@ -4,14 +4,11 @@ DROP TABLE IF EXISTS institution CASCADE;
 DROP TABLE IF EXISTS major CASCADE;
 DROP TABLE IF EXISTS institution_major CASCADE;
 DROP TABLE IF EXISTS profile CASCADE;
-DROP TABLE IF EXISTS phone;
-DROP TABLE IF EXISTS address;
 DROP TABLE IF EXISTS company CASCADE;
 DROP TABLE IF EXISTS company_position;
 DROP TABLE IF EXISTS position CASCADE;
 DROP TABLE IF EXISTS note CASCADE;
 DROP TABLE IF EXISTS application CASCADE;
-DROP TABLE IF EXISTS application_note;
 
 -- dropping already existing enums
 DROP TYPE IF EXISTS application_status CASCADE;
@@ -68,27 +65,17 @@ CREATE TABLE profile (
   middle_name    varchar(40),
   last_name      varchar(40),
   date_of_birth  varchar(10), -- date of birth
+  phone          varchar(20),
+  country        varchar(20),
+  zip            varchar(10),
+  city           varchar(20),
+  address        varchar(40),
   institution_id int REFERENCES institution (id),
   major_id       int REFERENCES major (id),
   student_id     int,
   ss_number      int, -- social security number (taj)
   tax_number     int,
   status         profile_status
-);
-
-CREATE TABLE phone (
-  id serial PRIMARY KEY,
-  profile_id int REFERENCES profile (id),
-  number     varchar(20)
-);
-
-CREATE TABLE address (
-  id serial PRIMARY KEY,
-  profile_id int REFERENCES profile (id),
-  zip        varchar(10),
-  address    varchar(40),
-  city       varchar(20),
-  country    varchar(20)
 );
 
 CREATE TABLE position (
@@ -101,13 +88,6 @@ CREATE TABLE company_position (
   position_id int REFERENCES position (id)
 );
 
-CREATE TABLE note (
-  id         serial PRIMARY KEY,
-  user_id    int REFERENCES users (id),
-  message    TEXT,
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);
-
 CREATE TABLE application (
   id          serial PRIMARY KEY,
   profile_id  int REFERENCES profile (id),
@@ -115,9 +95,12 @@ CREATE TABLE application (
   status      application_status
 );
 
-CREATE TABLE application_note (
+CREATE TABLE note (
+  id             serial PRIMARY KEY,
   application_id int REFERENCES application (id),
-  note_id        int REFERENCES note (id)
+  user_id        int REFERENCES users (id),
+  message        TEXT,
+  created_at     TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 -- creating triggers
@@ -204,3 +187,10 @@ INSERT INTO profile (email,
                      tax_number,
                      status)
 VALUES ('mt@test.com', 'FEMALE', 'Milena', NULL, 'Trump', '1970-01-01', 1, 1, 123, 1234, 12345, 'ACTIVE');
+
+SELECT *
+FROM profile;
+SELECT *
+FROM address;
+SELECT *
+FROM phone;
