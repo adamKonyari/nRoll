@@ -107,6 +107,22 @@ h1 {
     right: 0;
 }
 
+#backToSearchResultButton {
+    border-radius: 10px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 32px;
+    width: 130px;
+    transition: all 0.5s;
+    cursor: pointer;
+    display: block;
+    float: left;
+    padding: 0px;
+    margin-top: 18px;
+}
+
 .wrapper {
     position: relative;
     width: 100%;
@@ -200,8 +216,6 @@ h1 {
 .tabContent {
     display: none;
     padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
     animation: fadeEffect 1s; /* Fading effect takes 1 second */
 }
 
@@ -264,7 +278,7 @@ h1 {
     float: left;
     width:450px;
     padding:30px;
-    margin:40px auto;
+    margin:10px auto;
     background: #FFF;
     border-radius: 10px;
     -webkit-border-radius:10px;
@@ -305,36 +319,37 @@ h1 {
     color: #888;
 }
 
-.profileFromDiv #dateOfBirthInputDiv {
+#dateOfBirthInputDiv, #dateOfBirthDisplayDiv {
     float: left;
     width: 50%;
 }
 
-.profileFromDiv #profileDayInput {
+#profileDayInput, #profileDayDisplay {
     float: left;
     width: 38px;
 }
 
-.profileFromDiv #profileMonthInput {
+#profileMonthInput, #profileMonthDisplay {
     float: left;
     width: 38px;
 }
 
-.profileFromDiv #profileYearInput {
+#profileYearInput, #profileYearDisplay {
     float: left;
     width: 48px;
 }
-.profileFromDiv #profileMiddleNameInput {
+
+#profileMiddleNameInput, #profileMiddleNameDisplay {
     float: right;
     width: 82%;
 }
 
-.profileFromDiv #profileZipInput {
+#profileZipInput, #profileZipDisplay {
     float:left;
     width: 50%;
 }
 
-.profileFromDiv #profileCityInput {
+#profileCityInput, #profileCityDisplay {
     width: 50%;
 }
 

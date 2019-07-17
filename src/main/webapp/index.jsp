@@ -33,11 +33,10 @@
     </form>
     <button class="loginButton" id="login-button"><span>Login </span></button>
 </div>
-
 <div class="hidden content wrapper" id="mainDiv">
     <div class="topNav">
-        <button class="tabLinks" onclick="openTab(event, 'search')" id="defaultOpen">Search</button>
-        <button class="tabLinks" onclick="openTab(event, 'profiles')" id="profileTabButton">Profile</button>
+        <button class="tabLinks" onclick="openTab(event, 'search')" id="searchTab">Search</button>
+        <button class="tabLinks" onclick="openTab(event, 'profiles')" id="profileTabButton">Create</button>
         <button class="tabLinks" onclick="openTab(event, 'companies')">Companies</button>
         <button class="tabLinks" onclick="openTab(event, 'positions')">Positions</button>
         <div class="search-container">
@@ -50,18 +49,87 @@
     <div id="search" class="tabContent">
         <div id="searchResultDiv">
         </div>
-        <div id="activeProfileDiv" style="display: none;">
-            <p>test</p>
+        <div id="profileDisplayDiv" style="display: none">
+
+            <div class="profileFromDiv" onsubmit="return false;">
+                <div>
+                    <button id="backToSearchResultButton">Back</button>
+                    <h1 id="profileNameDisplayH1" style="color: #ff8a00"></h1>
+                </div>
+                <form id="profileDisplyForm">
+                    <div class="section"><span>1</span>Personal info</div>
+                    <div class="inner-wrap">
+                        <input type="text" name="firstNameField" id="profileFirstNameDisplay" placeholder="First name">
+                        <input type="text" name="middleNameField" id="profileMiddleNameDisplay" class="middleNameField"
+                               placeholder="Middle name"
+                               disabled>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
+                                   id="middleNameDisplayCheckbox">
+                            <label class="onoffswitch-label" for="middleNameDisplayCheckbox"></label>
+                        </div>
+                        <input type="text" name="lastNameField" id="profileLastNameDisplay" placeholder="Last name">
+                        <div id="dateOfBirthDisplayDiv">
+                            <i class="material-icons" style="float:left">cake</i>
+                            <input type="text" name="yearField" id="profileYearDisplay" placeholder="YYYY"
+                                   maxlength="4">
+                            <input type="text" name="monthField" id="profileMonthDisplay" placeholder="MM"
+                                   maxlength="2">
+                            <input type="text" name="dayField" id="profileDayDisplay" placeholder="DD" maxlength="2">
+                        </div>
+                        <div style="padding-top: 7px">
+                            <input type="radio" name="gender" value="MALE" id="profileMaleDisplay"> Male ♂
+                            <input type="radio" name="gender" value="FEMALE" id="profileFemaleDisplay"> Female ♀
+                        </div>
+                    </div>
+                    <div class="section"><span>2</span>Contact info</div>
+                    <div class="inner-wrap">
+                        <input type="email" name="emailField" placeholder="Email" id="profileEmailDisplay"><br>
+                        <input type="text" name="phoneField" placeholder="Phone e.g. +36201234567"
+                               id="profilePhoneDisplay"><br>
+                        <input type="text" name="countryField" placeholder="Country" id="countryDisplay">
+                        <input type="text" name="zipField" placeholder="Zip code" id="profileZipDisplay">
+                        <input type="text" name="cityField" placeholder="City" id="profileCityDisplay">
+                        <input type="text" name="addressField" placeholder="Address" id="profileAddressDisplay">
+                    </div>
+
+                    <div class="section"><span>3</span>Studies</div>
+                    <div class="inner-wrap">
+                        <select id="profileInstitutionDisplay">
+                            <option default value="1">Institution</option>
+                        </select>
+                        <select id="profileMajorDisplay">
+                            <option default value="1">Major</option>
+                        </select>
+                    </div>
+                    <div class="section"><span>4</span>Serial numbers</div>
+                    <div class="inner-wrap">
+                        <input type="text" name="studentIdField" placeholder="Student ID" id="profileStudentIdDisplay">
+                        <input type="text" name="socialSecurityNumberField" placeholder="Social security number"
+                               id="profileSocialSecurityDisplay">
+                        <input type="text" name="taxNumberField" placeholder="Tax number" id="profileTaxNumberDisplay">
+                    </div>
+                    <div class="inner-wrap">
+                        <div style="text-align: center; padding-bottom: 15px">
+                            <input type="radio" name="profileStatus" value="ACTIVE" id="profileActiveDisplay"> ACTIVE
+                            <input type="radio" name="profileStatus" value="PASSIVE" id="profilePassiveDisplay"> PASSIVE
+                        </div>
+                        <button class="saveButton" id="updateProfileButton"><span>Save profile</span></button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
+
     <div id="profiles" class="tabContent">
         <div id="profileFromDiv" class="profileFromDiv" onsubmit="return false;">
-            <h1>New Profile<span>Fill the form in order to create a new profile!</span></h1>
-            <form>
+            <h1>New Profile</h1>
+            <form id="newProfileForm">
                 <div class="section"><span>1</span>Personal info</div>
                 <div class="inner-wrap">
                     <input type="text" name="firstNameField" id="profileFirstNameInput" placeholder="First name">
-                    <input type="text" name="middleNameField" id="profileMiddleNameInput" placeholder="Middle name"
+                    <input type="text" name="middleNameField" class="middleNameField" id="profileMiddleNameInput"
+                           placeholder="Middle name"
                            disabled>
                     <div class="onoffswitch">
                         <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="middleNameCheckbox">
@@ -82,7 +150,8 @@
                 <div class="section"><span>2</span>Contact info</div>
                 <div class="inner-wrap" id="contactInfoWrapper">
                     <input type="email" name="emailField" placeholder="Email" id="profileEmailInput"><br>
-                    <input type="text" name="phoneField" placeholder="Phone e.g. +36201234567" id="profilePhoneInput"><br>
+                    <input type="text" name="phoneField" placeholder="Phone e.g. +36201234567"
+                           id="profilePhoneInput"><br>
                     <input type="text" name="countryField" placeholder="Country" id="countryInput">
                     <input type="text" name="zipField" placeholder="Zip code" id="profileZipInput">
                     <input type="text" name="cityField" placeholder="City" id="profileCityInput">
@@ -101,7 +170,8 @@
                 <div class="section"><span>4</span>Serial numbers</div>
                 <div class="inner-wrap">
                     <input type="text" name="studentIdField" placeholder="Student ID" id="profileStudentIdInput">
-                    <input type="text" name="socialSecurityNumberField" placeholder="Social security number" id="profileSocialSecurityInput">
+                    <input type="text" name="socialSecurityNumberField" placeholder="Social security number"
+                           id="profileSocialSecurityInput">
                     <input type="text" name="taxNumberField" placeholder="Tax number" id="profileTaxNumberInput">
                 </div>
                 <div class="inner-wrap">

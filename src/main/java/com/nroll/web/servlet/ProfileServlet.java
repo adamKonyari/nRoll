@@ -48,9 +48,6 @@ public class ProfileServlet extends AbstractServlet {
             int taxNumber = Integer.parseInt(req.getParameter("taxNumber"));
             ProfileStatus profileStatus = ProfileStatus.valueOf(req.getParameter("profileStatus"));
             int profileId = profileService.addProfile(email, firstName, middleName, lastName, dateOfBirth, gender, phone, country, zip, city, address, institutionId, majorId, studentId, socialSecurityNumber, taxNumber, profileStatus);
-            req.setAttribute("profileId", profileId);
-            req.getRequestDispatcher("/protected/address").include(req, resp);
-            req.getRequestDispatcher("/protected/phone").include(req, resp);
             sendMessage(resp, HttpServletResponse.SC_OK, "Profile added!");
         } catch (SQLException e) {
             e.printStackTrace();

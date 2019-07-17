@@ -1,26 +1,39 @@
 function onProfileClicked() {
+    document.getElementById('profileDisplayDiv').addEventListener('keyup', (e) => {
+        if(e.key === 'Escape') {
+            backToSearchResults()
+        }
+    });
+    document.getElementById('backToSearchResultButton').addEventListener('click', backToSearchResults);
     let activeProfile = JSON.parse(this.getAttribute('profile'));
-    document.getElementById('profileFirstNameInput').value = activeProfile.firstName;
-    document.getElementById('profileMiddleNameInput').value = activeProfile.middleName;
-    document.getElementById('profileLastNameInput').value = activeProfile.lastName;
-    document.getElementById('profileYearInput').value = activeProfile.dateOfBirth.slice(0,4);
-    document.getElementById('profileMonthInput').value = activeProfile.dateOfBirth.slice(5,7);
-    document.getElementById('profileDayInput').value = activeProfile.dateOfBirth.slice(8,10);
+    document.getElementById('profileNameDisplayH1').innerHTML = activeProfile.firstName + ' ' + activeProfile.lastName;
+    document.getElementById('profileFirstNameDisplay').value = activeProfile.firstName;
+    document.getElementById('profileMiddleNameDisplay').value = activeProfile.middleName;
+    document.getElementById('profileLastNameDisplay').value = activeProfile.lastName;
+    document.getElementById('profileYearDisplay').value = activeProfile.dateOfBirth.slice(0,4);
+    document.getElementById('profileMonthDisplay').value = activeProfile.dateOfBirth.slice(5,7);
+    document.getElementById('profileDayDisplay').value = activeProfile.dateOfBirth.slice(8,10);
     if(activeProfile.gender === "MALE") {
-        document.getElementById('profileMaleInput').click();
+        document.getElementById('profileMaleDisplay').click();
     }else if(activeProfile.gender === "FEMALE") {
-        document.getElementById('profileFemaleInput').click();
+        document.getElementById('profileFemaleDisplay').click();
     }
-    document.getElementById('profileEmailInput').value = activeProfile.email;
-    document.getElementById('profilePhoneInput').value = activeProfile.phone;
-    document.getElementById('countryInput').value = activeProfile.country;
-    document.getElementById('profileZipInput').value = activeProfile.zip;
-    document.getElementById('profileCityInput').value = activeProfile.city;
-    document.getElementById('profileAddressInput').value = activeProfile.address;
-    document.getElementById('profileStudentIdInput').value = activeProfile.studentId;
-    document.getElementById('profileSocialSecurityInput').value = activeProfile.socialSecurityNumber;
-    document.getElementById('profileTaxNumberInput').value = activeProfile.taxNumber;
-    document.getElementById('profileTabButton').click();
+    document.getElementById('profileEmailDisplay').value = activeProfile.email;
+    document.getElementById('profilePhoneDisplay').value = activeProfile.phone;
+    document.getElementById('countryDisplay').value = activeProfile.country;
+    document.getElementById('profileZipDisplay').value = activeProfile.zip;
+    document.getElementById('profileCityDisplay').value = activeProfile.city;
+    document.getElementById('profileAddressDisplay').value = activeProfile.address;
+    document.getElementById('profileStudentIdDisplay').value = activeProfile.studentId;
+    document.getElementById('profileSocialSecurityDisplay').value = activeProfile.socialSecurityNumber;
+    document.getElementById('profileTaxNumberDisplay').value = activeProfile.taxNumber;
+    if(activeProfile.profileStatus === 'ACTIVE') {
+        document.getElementById('profileActiveDisplay').click();
+    } else if(activeProfile.profileStatus === 'PASSIVE') {
+        document.getElementById('profilePassiveDisplay').click();
+    }
+    document.getElementById('searchResultDiv').style.display = 'none';
+    document.getElementById('profileDisplayDiv').style.display = 'block';
 }
 
 function onSaveProfileButtonClicked() {
@@ -75,13 +88,27 @@ function onSaveProfileButtonClicked() {
     postAsync('protected/profile', params)
         .then((message) => {
             console.log(message);
+            document.getElementById('newProfileForm').reset();
         });
 }
 
-function onMiddleNameChecked() {
+function onMiddleNameInputChecked() {
     if (this.checked) {
         document.getElementById('profileMiddleNameInput').removeAttribute('disabled');
     } else {
         document.getElementById('profileMiddleNameInput').setAttribute('disabled', 'true');
     }
+}
+
+function onMiddleNameDisplayChecked() {
+    if (this.checked) {
+        document.getElementById('profileMiddleNameDisplay').removeAttribute('disabled');
+    } else {
+        document.getElementById('profileMiddleNameDisplay').setAttribute('disabled', 'true');
+    }
+}
+
+function backToSearchResults() {
+    document.getElementById('searchResultDiv').style.display = 'block';
+    document.getElementById('profileDisplayDiv').style.display = 'none';
 }

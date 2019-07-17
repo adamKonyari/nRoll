@@ -22,7 +22,7 @@ function onLoginButtonClicked() {
             .then((data) => {
                 activeUser = data;
                 showContents(['mainDiv']);
-                document.getElementById("defaultOpen").click();
+                document.getElementById("searchTab").click();
             })
             .catch((error) => {
                 console.log(error);

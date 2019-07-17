@@ -7,7 +7,7 @@ function onSearchButtonClicked() {
             .then((data) => {
                 let activeProfileList = data;
                 console.log(data);
-                document.getElementById("defaultOpen").click();
+                document.getElementById("searchTab").click();
                 createProfileTable(activeProfileList);
             })
             .catch((error) => {

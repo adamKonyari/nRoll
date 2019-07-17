@@ -20,7 +20,7 @@ DROP TYPE IF EXISTS gender CASCADE;
 -- creating enums
 CREATE TYPE user_type AS ENUM ('ADMIN', 'USER');
 CREATE TYPE institution_type AS ENUM ('UNIVERSITY', 'HIGH_SCHOOL');
-CREATE TYPE profile_status AS ENUM ('ACTIVE', 'INACTIVE');
+CREATE TYPE profile_status AS ENUM ('ACTIVE', 'PASSIVE');
 CREATE TYPE gender AS ENUM ('MALE', 'FEMALE');
 CREATE TYPE application_status AS ENUM ('HIRED', 'FIRED', 'DECLINED', 'INTERVIEW', 'REVIEW');
 
@@ -186,7 +186,7 @@ INSERT INTO profile (email,
                      ss_number,
                      tax_number,
                      status)
-VALUES ('mt@test.com', 'FEMALE', 'Milena', NULL, 'Trump', '1970-01-01', 1, 1, 123, 1234, 12345, 'ACTIVE');
+VALUES ('mt@test.com', 'FEMALE', 'Milena', NULL, 'Trump', '1970-01-01', 1, 1, 123, 1234, 12345, 'PASSIVE');
 
 SELECT *
 FROM profile;

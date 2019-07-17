@@ -6,7 +6,7 @@ abstract class AbstractModel {
 
     private int id;
 
-    public AbstractModel(int id) {
+    AbstractModel(int id) {
         this.id = id;
     }
 

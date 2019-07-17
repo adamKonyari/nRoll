@@ -54,7 +54,7 @@ function getText(el) {
 
 function createProfileTable(profileList) {
     document.getElementById('searchResultDiv').style.display = 'block';
-    document.getElementById('activeProfileDiv').style.display = 'none';
+    document.getElementById('profileDisplayDiv').style.display = 'none';
     let searchDivEl = document.getElementById("searchResultDiv");
     searchDivEl.removeChild(searchDivEl.firstChild);
     let table = document.createElement("table");
