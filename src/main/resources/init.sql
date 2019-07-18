@@ -105,7 +105,6 @@ CREATE TABLE note (
 
 -- creating triggers
 
-
 -- test inserts
 
 INSERT INTO major (name)
